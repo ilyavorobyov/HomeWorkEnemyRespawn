@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
     private IEnumerator _coroutineRespawner;
     private bool _isCreating = true;
 
-    void Start()
+    private void Start()
     {
         _coroutineRespawner = CreateEnemy();
         _points = new Vector3[transform.childCount];
@@ -25,6 +25,7 @@ public class EnemySpawner : MonoBehaviour
 
     private IEnumerator CreateEnemy()
     {
+        var waitTime = new WaitForSeconds(_respawnInterval);
         int numberOfPoint = 0;
 
         while (_isCreating)
@@ -37,7 +38,7 @@ public class EnemySpawner : MonoBehaviour
                 numberOfPoint = 0;
             }
 
-            yield return new WaitForSeconds(_respawnInterval);
+            yield return waitTime;
         }
     }
 }
