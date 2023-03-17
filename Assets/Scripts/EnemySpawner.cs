@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject _enemy;
+    [SerializeField] private Enemy _enemy;
     [SerializeField] private float _respawnInterval;
 
     private Vector3[] _points;
